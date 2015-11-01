@@ -2,6 +2,7 @@
 
 namespace Application\Block\ParallaxImage;
 use Concrete\Core\Block\BlockController;
+use Core;
 use Loader;
 use File;
 use Page;
@@ -37,6 +38,15 @@ class Controller extends BlockController
 			$pagetitle = $this->title;
 		}
 		$this->set('title',$pagetitle);
+	}
+
+	public function validate($data)
+	{
+		$e = Core::make('error');
+		if(!$data['photoID']) {
+			$e->add(t('You must select an image for this plugin to work'));
+		}
+		return $e;
 	}
 	
 	public function save($data)
