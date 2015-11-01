@@ -1,6 +1,6 @@
 <style>
 .hb-area {
-	background: url('<?php echo $link ?>') no-repeat center center;
+background: url('<?php echo $link ?>') no-repeat <?php echo $position?> center;
 	height: 500px;
 	width: 100%;
 	position: relative;
@@ -48,13 +48,9 @@
 	</h1>
 </div>
 <script>
-	$( document ).ready(function() {
-		parallax();
-	});
-	$(window).scroll(function() {
-		parallax();
-	});
+	console.log("parallax loaded");
 	function parallax() {
+		console.log("parallax started");
 		var w = window.innerWidth
 		|| document.documentElement.clientWidth
 		|| document.body.clientWidth;

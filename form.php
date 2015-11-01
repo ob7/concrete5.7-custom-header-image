@@ -16,7 +16,7 @@ if ($photoID) {
 	<?php print $al->file('photo','photoID','Select Photo',$photo);?>
 </div>
 <div class="form-group">
-	<label class="control-label"><?=t('Select background position of image for when screen is to small to parallax')?></label>
+	<label class="control-label"><?=t('Select background position of image for when parallax is disabled')?></label>
 	<?php echo $form->label('position',"Position"); ?>
 	<select name="position" value="<?php echo $position?>">
 		<option <?php if($position=='Top'){echo" selected";}?>>Top</option>
@@ -25,9 +25,19 @@ if ($photoID) {
 	</select>
 </div>
 <div class="form-group">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" name="parallaxstate" value="1" <?php if ($parallaxstate) { ?>checked<?php } ?>>
+			<?php echo t('Enable parallax on image?')?>
+		</label>
+	</div>
+</div>
+
+<div class="form-group">
 	<label class="control-label"><?=t('Select the offset of the image while in parallax, this can help you position the image correctly while in parllax. Example: -500, or +350, must include operator.')?></label>
 	<input type="text" class="form-control" name="offset" value="<?php echo $offset?>">
 </div>
+
 <div class="form-group">
 	<div class="checkbox">
 		<label>
@@ -35,7 +45,7 @@ if ($photoID) {
 			<?php echo t('Show title ontop of image?')?>
 		</label>
 	</div>
-</div> 
+</div>
 <div class="form-group">
 <?php echo $fm->text('title',$title,array('placeholder'=>'Header text'))?>
 Leave blank to use page title
