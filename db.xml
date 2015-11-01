@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema version="0.3">
+	<table name="btHeaderImage">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="photoID" type="integer">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<field name="link" type="C" size="255">
+		</field>
+		<field name="title" type="C" size="255">
+		</field>
+		<field name="offset" type="C" size="255">
+			<default value="" />
+		</field>
+		<field name="position" type="C" size="255">
+		</field>
+		<field name="titlestate" type="I1" size="1">
+			<default value="0" />
+		</field>
+	</table>
+</schema>
+
