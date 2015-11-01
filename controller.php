@@ -22,11 +22,12 @@ class Controller extends BlockController
 
 	public function getBlockTypeDescription()
 	{
-		return t("Select a image to and add caption or parallax");
+		return t("Select a image and add caption or parallax effect. Originally built as a large header image.");
 	}
 
 	public function registerViewAssets()
 	{
+		$blockID=$this->bID;
 		$pkg = 'parallax_image';
 		$al = \Concrete\Core\Asset\AssetList::getInstance();
 		$al->register('javascript','parallax_function','blocks/parallax_image/parallax.js',array('version'=>'1.0.0','minify'=>false,'combine'=>true),$pkg);
@@ -38,11 +39,11 @@ class Controller extends BlockController
 	public function on_page_view()
 	{
 		$html = loader::helper('html');
-		$parallaxstate=$this->parallaxstate;
-		if ($parallaxstate) {
-			// $this->addFooterItem($html->javascript('parallax.js','parallax_image'));
-			$this->requireAsset('parallax_function');
-		}
+		// $parallaxstate=$this->parallaxstate;
+		// if ($parallaxstate) {
+		// 	// $this->addFooterItem($html->javascript('parallax.js','parallax_image'));
+		// 	$this->requireAsset('parallax_function');
+		// }
 	}
 
 	public function view()
